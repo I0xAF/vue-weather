@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <h1>Weather init</h1>
+    <v-app>
+      <v-main>
+        <v-container>
+          <v-alert type="success" border="top">Vuetify init</v-alert>
+        </v-container>
+      </v-main>
+    </v-app>
   </div>
 </template>
 
@@ -12,7 +18,7 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
