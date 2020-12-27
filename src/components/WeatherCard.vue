@@ -56,7 +56,7 @@ export default {
   computed: {
     skyUrl() {
       //todo
-      return '@/assets/cloud.png'
+      return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/cloudy.png'
     },
     temperature() {
       return -5
