@@ -1,7 +1,11 @@
 <template>
   <v-app id="app">
     <v-app-bar app>
-      <v-toolbar-title>Weather | Vue2</v-toolbar-title>
+      <v-col>
+        <v-toolbar-title class="font-weight-medium"
+          >Weather | Vue2</v-toolbar-title
+        >
+      </v-col>
     </v-app-bar>
     <v-main>
       <v-container
