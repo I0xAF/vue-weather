@@ -1,18 +1,24 @@
 <template>
-  <div id="app">
-    <v-app>
-      <v-main>
-        <v-container>
-          <v-alert type="success" border="top">Vuetify init</v-alert>
-        </v-container>
-      </v-main>
-    </v-app>
-  </div>
+  <v-app id="app">
+    <v-app-bar app>
+      <v-toolbar-title>Weather | Vue2</v-toolbar-title>
+    </v-app-bar>
+    <v-main>
+      <v-container fluid class="d-flex justify-center">
+        <weather-card city="Москва" />
+        <!-- Todo main elements -->
+      </v-container>
+    </v-main>
+    <v-footer app> </v-footer>
+  </v-app>
 </template>
 
 <script>
+import WeatherCard from './components/WeatherCard'
+
 export default {
   name: 'App',
+  components: { WeatherCard },
 }
 </script>
 
@@ -23,6 +29,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
