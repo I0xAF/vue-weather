@@ -11,7 +11,7 @@
         justify="center"
       >
         <weather-card city="Москва" />
-        <weather-card city="Санкт-петербург" />
+        <weather-card city="Санкт-Петербург" />
         <weather-card city="Красноярск" />
         <weather-card city="Пермь" />
         <!-- Todo main elements -->
