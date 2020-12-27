@@ -4,12 +4,27 @@
       <v-toolbar-title>Weather | Vue2</v-toolbar-title>
     </v-app-bar>
     <v-main>
-      <v-container fluid class="d-flex justify-center">
+      <v-container
+        fluid
+        class="d-flex"
+        style="margin-top: 10%"
+        justify="center"
+      >
         <weather-card city="Москва" />
+        <weather-card city="Санкт-петербург" />
+        <weather-card city="Красноярск" />
+        <weather-card city="Пермь" />
         <!-- Todo main elements -->
       </v-container>
     </v-main>
-    <v-footer app> </v-footer>
+    <v-footer app>
+      <v-col class="text-center" cols="12">
+        <div class="subtitle-2">
+          Powered by OpenWeather
+          <v-icon small>mdi-cloud</v-icon>
+        </div>
+      </v-col>
+    </v-footer>
   </v-app>
 </template>
 
