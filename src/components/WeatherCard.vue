@@ -14,7 +14,11 @@
 
     <v-card-text>
       <v-row align="center">
-        <v-col class="display-3" cols="6">
+        <v-col
+          class="display-3"
+          style="font-family: 'Consolas' !important;"
+          cols="6"
+        >
           {{ days.temp }}&deg;C
           <p class="subtitle-2" style="font-size: 12px !important;">
             Ощущается как {{ days.ftemp }}&deg;C
