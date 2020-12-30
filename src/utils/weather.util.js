@@ -1,3 +1,5 @@
+const assetsUrl =
+  'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/'
 export default {
   Drizzle: 'Мелкий дождь',
   Thunderstorm: 'Гроза',
@@ -18,7 +20,7 @@ export default {
 export function getCelsium(value) {
   return Math.round(value - 273.15)
 }
-export function getUrl(value) {
+export function getUrl(value, isDayNow) {
   switch (value) {
     case 'Smoke':
     case 'Haze':
@@ -27,19 +29,19 @@ export function getUrl(value) {
     case 'Sand':
     case 'Ash':
     case 'Mist':
-      return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/foggy.png'
+      return `${assetsUrl}foggy.png`
     case 'Snow':
-      return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/snow.png'
+      return `${assetsUrl}snow.png`
     case 'Rain':
     case 'Drizzle':
-      return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/rain.png'
+      return `${assetsUrl}rain.png`
     case 'Thunderstorm':
-      return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/thunderstorm.png'
+      return `${assetsUrl}thunderstorm.png`
     case 'Clear':
-      return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/sun.png'
+      return isDayNow ? `${assetsUrl}sun.png` : `${assetsUrl}moon.png`
     case 'Clouds':
-      return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/cloudy.png'
+      return `${assetsUrl}cloudy.png`
     case 'Tornado':
-      return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/tornado.png'
+      return `${assetsUrl}tornado.png`
   }
 }

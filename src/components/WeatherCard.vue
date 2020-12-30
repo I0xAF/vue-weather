@@ -26,7 +26,7 @@
           </p>
         </v-col>
         <v-col cols="6">
-          <Sky :skyUrl="currentDay.sky | getUrl" />
+          <Sky :skyUrl="currentDay.skyUrl" />
         </v-col>
       </v-row>
     </v-card-text>
@@ -57,25 +57,17 @@
 
 <script>
 import Sky from '@/components/card/sky/Sky'
-import translateSkyName from '@/utils/sky'
-
-import { getUrl } from '@/filters/skyToUrl'
 import { mapGetters, mapActions, mapMutations } from 'vuex' //Get temperature
 export default {
-  filters: {
-    getUrl,
-  },
   name: 'weather-card',
   props: ['value'],
   components: { Sky },
-  computed: {
-    ...mapGetters(['currentDay']),
-  },
+  computed: mapGetters(['currentDay']),
   methods: mapActions(['fetchCurrentDay']),
   async mounted() {
     await this.fetchCurrentDay({
       city: this.value,
-      apiKey: '',
+      apiKey: 'eb4160fd777d52bc28b45030bd79a12d',
     })
   },
   // data() {
