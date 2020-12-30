@@ -39,5 +39,7 @@ export function getUrl(value) {
       return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/sun.png'
     case 'Clouds':
       return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/cloudy.png'
+    case 'Tornado':
+      return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/tornado.png'
   }
 }
