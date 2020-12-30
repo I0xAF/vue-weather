@@ -6,9 +6,7 @@
           {{ value }}
         </v-list-item-title>
         <v-list-item-subtitle>
-          Понедельник, {{ currentDay.sky }}
-          <!-- {{ days.dayOfWeek }},
-          {{ days.sky }} -->
+          {{ currentDay.weekDay }}, {{ currentDay.sky }}
         </v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
@@ -70,53 +68,7 @@ export default {
       apiKey: 'eb4160fd777d52bc28b45030bd79a12d',
     })
   },
-  // data() {
-  //   return {
-  //     days: {
-  //       dayOfWeek: 'Воскресенье',
-  //       temp: -5,
-  //       ftemp: -3,
-  //       sky: 'Облачно',
-  //       forecasts: [
-  //         {
-  //           dayOfWeek: 'Понедельник',
-  //           temp: -8,
-  //           ftemp: -4,
-  //           sky: 'Облачно',
-  //         },
-  //         {
-  //           dayOfWeek: 'Вторник',
-  //           temp: -12,
-  //           ftemp: -7,
-  //           sky: 'Снег',
-  //         },
-  //         {
-  //           dayOfWeek: 'Среда',
-  //           temp: -16,
-  //           ftemp: -10,
-  //           sky: 'Снег',
-  //         },
-  //         {
-  //           dayOfWeek: 'Четверг',
-  //           temp: -5,
-  //           ftemp: -1,
-  //           sky: 'Солнечно',
-  //         },
-  //       ],
-  //     },
-  //   }
-  // },
 }
 </script>
 
-<style lang="scss">
-.temperature {
-  &::after {
-    content: '℃';
-    position: absolute;
-    margin-top: -5px;
-    font-size: 10px;
-    color: #cccccc;
-  }
-}
-</style>
+<style lang="scss"></style>

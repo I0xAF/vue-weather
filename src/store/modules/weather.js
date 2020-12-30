@@ -1,5 +1,16 @@
 import weatherTranslate from '@/utils/weather.util'
 import { getCelsium, getUrl } from '@/utils/weather.util'
+//OpenWeather | API
+const days = [
+  //refactor
+  'Воскресенье',
+  'Понедельник',
+  'Вторник',
+  'Среда',
+  'Четверг',
+  'Пятница',
+  'Суббота',
+]
 export default {
   state: {
     currentDay: {},
@@ -28,10 +39,15 @@ export default {
             ftemp: getCelsium(data.main.feels_like),
             pressure: data.main.pressure,
             wind: data.wind.speed,
-            dt,
+            weekDay: days[dt.getDay()],
           }
           commit('setCurrentDay', currentDay)
         })
+    },
+    async fetchForecasts({ commit }, { city, apiKey }) {
+      fetch(
+        `https://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=4&appid=${apiKey}`
+      )
     },
   },
   getters: {
