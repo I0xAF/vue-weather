@@ -6,11 +6,10 @@ export default {
   Mist: 'Туман',
   Smoke: 'Туман',
   Haze: 'Мгла',
-  Dust: 'Пыль',
+  Dust: 'Пыльная буря',
   Fog: 'Туман',
-  Sand: 'Песок',
+  Sand: 'Песчаная буря',
   Ash: 'Вулканический смог',
-  Squall: 'Буря',
   Tornado: 'Торнадо',
   Clear: 'Ясно',
   Clouds: 'Облачно',
@@ -21,6 +20,12 @@ export function getCelsium(value) {
 }
 export function getUrl(value) {
   switch (value) {
+    case 'Smoke':
+    case 'Haze':
+    case 'Dust':
+    case 'Fog':
+    case 'Sand':
+    case 'Ash':
     case 'Mist':
       return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/foggy.png'
     case 'Snow':
@@ -30,5 +35,9 @@ export function getUrl(value) {
       return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/rain.png'
     case 'Thunderstorm':
       return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/thunderstorm.png'
+    case 'Clear':
+      return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/sun.png'
+    case 'Clouds':
+      return 'https://raw.githubusercontent.com/I0xAF/vue-weather/main/src/assets/sky/cloudy.png'
   }
 }
