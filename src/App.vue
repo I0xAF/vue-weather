@@ -14,10 +14,7 @@
         style="margin-top: 10%"
         justify="center"
       >
-        <weather-card city="Москва" />
-        <weather-card city="Санкт-Петербург" />
-        <weather-card city="Красноярск" />
-        <weather-card city="Пермь" />
+        <weather-card v-model="city" />
         <!-- Todo main elements -->
       </v-container>
     </v-main>
@@ -38,6 +35,11 @@ import WeatherCard from './components/WeatherCard'
 export default {
   name: 'App',
   components: { WeatherCard },
+  data() {
+    return {
+      city: 'Москва',
+    }
+  },
 }
 </script>
 
