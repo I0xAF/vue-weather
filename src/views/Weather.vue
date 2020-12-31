@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       city: 'Москва',
+      apiKey: '439d4b804bc8187953eb36d2a8c26a02',
     }
   },
   computed: mapGetters(['currentDay']),
@@ -26,11 +27,12 @@ export default {
       this.city = this.$route.params.city
       await this.fetchCurrentDay({
         city: this.city,
-        apiKey: '439d4b804bc8187953eb36d2a8c26a02', //?????????
+        apiKey: this.apiKey,
       })
+
       await this.fetchForecasts({
         coords: this.currentDay.coords,
-        apiKey: '439d4b804bc8187953eb36d2a8c26a02',
+        apiKey: this.apiKey,
       })
     },
   },
@@ -39,5 +41,3 @@ export default {
   },
 }
 </script>
-
-<style></style>

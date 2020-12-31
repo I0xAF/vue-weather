@@ -10,35 +10,8 @@
       {{ currentDay.error }}
     </v-alert>
     <div class="pa-2" v-else>
-      <v-list-item two-line>
-        <v-list-item-content>
-          <v-list-item-title class="headline">
-            {{ value }}
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            {{ currentDay.weekDay }},
-            {{ currentDay.datetime.toLocaleString() }}, {{ currentDay.sky }}
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-card-text>
-        <v-row align="center">
-          <v-col
-            class="display-3"
-            style="font-family: 'Consolas' !important;"
-            cols="6"
-          >
-            {{ currentDay.temp }}&deg;C
-            <p class="subtitle-2" style="font-size: 12px !important;">
-              Ощущается как {{ currentDay.ftemp }}&deg;C
-            </p>
-          </v-col>
-          <v-col cols="6">
-            <Sky :skyUrl="currentDay.skyUrl" />
-          </v-col>
-        </v-row>
-      </v-card-text>
+      <weather-header :city="value" />
+      <weather-body />
 
       <v-list-item>
         <v-list-item-content>
@@ -50,20 +23,23 @@
 
       <v-divider />
 
-      <Forecasts />
+      <weather-forecasts />
     </div>
   </v-card>
 </template>
 
 <script>
-import Sky from '@/components/card/sky/Sky'
-import Forecasts from '@/components/card/Forecasts'
-import { mapGetters, mapActions, mapMutations } from 'vuex' //Get temperature
+import WeatherForecasts from '@/components/card/WeatherForecasts'
+import WeatherHeader from '@/components/card/WeatherHeader'
+import WeatherBody from '@/components/card/WeatherBody'
+
+import { mapGetters } from 'vuex' //Get temperature
 import Loader from './Loader.vue'
+
 export default {
   name: 'weather-card',
   props: ['value'],
-  components: { Sky, Forecasts },
+  components: { WeatherForecasts, WeatherHeader, WeatherBody },
   computed: {
     ...mapGetters(['currentDay']),
     loading() {

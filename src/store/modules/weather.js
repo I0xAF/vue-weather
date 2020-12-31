@@ -60,32 +60,36 @@ export default {
       }
     },
     async fetchForecasts({ commit }, { coords, apiKey }) {
-      const response = await fetch(
-        `https://openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}`
-      )
-      const data = await response.json()
+      try {
+        const response = await fetch(
+          `https://openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}`
+        )
+        const data = await response.json()
 
-      const forecasts = []
-      const daily = data.daily
-      daily.splice(1, 4).forEach((a) => {
-        const dt = new Date(a.dt * 1000)
-        forecasts.push({
-          tempMin: Math.ceil(a.temp.min),
-          tempMax: Math.ceil(a.temp.max),
-          pressure: a.pressure,
-          weekDay: days[dt.getDay()],
-          wind: {
-            speed: a.wind_speed,
-            deg: a.wind_deg,
-          },
-          sky: weatherTranslate[a.weather[0].main],
-          skyUrl: getUrl(
-            a.weather[0].main,
-            dt.getHours() > 6 && dt.getHours() < 20
-          ),
+        const forecasts = []
+        const daily = data.daily
+        daily.splice(1, 4).forEach((a) => {
+          const dt = new Date(a.dt * 1000)
+          forecasts.push({
+            tempMin: Math.ceil(a.temp.min),
+            tempMax: Math.ceil(a.temp.max),
+            pressure: a.pressure,
+            weekDay: days[dt.getDay()],
+            wind: {
+              speed: a.wind_speed,
+              deg: a.wind_deg,
+            },
+            sky: weatherTranslate[a.weather[0].main],
+            skyUrl: getUrl(
+              a.weather[0].main,
+              dt.getHours() > 6 && dt.getHours() < 20
+            ),
+          })
         })
-      })
-      commit('setForecasts', forecasts)
+        commit('setForecasts', forecasts)
+      } catch {
+        commit('setForecasts', { error: 'Невозможно получить прогноз' })
+      }
     },
   },
   getters: {

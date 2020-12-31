@@ -9,12 +9,7 @@
     </v-app-bar>
     <v-main>
       <!-- Search Bar -->
-      <v-container
-        fluid
-        class="d-flex"
-        style="margin-top: 10%"
-        justify="center"
-      >
+      <v-container fluid class="d-flex" style="margin-top: 7%" justify="center">
         <router-view />
         <!-- Todo main elements -->
       </v-container>
@@ -22,7 +17,7 @@
         <v-text-field
           @keyup.enter="findCity"
           v-model="search"
-          style="padding-top: 2%; position: absolute; width: 360px"
+          style="padding-top: 1%; position: absolute; width: 360px"
           hide-details
           prepend-icon="mdi-magnify"
           single-line

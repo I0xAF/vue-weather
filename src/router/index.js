@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Weather from '../views/Weather.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +7,7 @@ const routes = [
   {
     path: '/weather/:city',
     name: 'Weather',
-    component: Weather,
+    component: () => import('../views/Weather'),
   },
 ]
 
