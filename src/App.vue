@@ -1,22 +1,34 @@
 <template>
   <v-app id="app">
     <v-app-bar app>
-      <v-col>
+      <v-col class="text-left">
         <v-toolbar-title class="font-weight-medium"
           >Weather | Vue2</v-toolbar-title
         >
       </v-col>
     </v-app-bar>
     <v-main>
+      <!-- Search Bar -->
       <v-container
         fluid
         class="d-flex"
         style="margin-top: 10%"
         justify="center"
       >
-        <weather-card v-model="city" />
+        <router-view />
         <!-- Todo main elements -->
       </v-container>
+      <div class="justify-center d-flex">
+        <v-text-field
+          @keyup.enter="findCity"
+          v-model="search"
+          style="padding-top: 2%; position: absolute; width: 360px"
+          hide-details
+          prepend-icon="mdi-magnify"
+          single-line
+          placeholder="Ваш город"
+        ></v-text-field>
+      </div>
     </v-main>
     <v-footer app>
       <v-col class="text-center" cols="12">
@@ -30,15 +42,18 @@
 </template>
 
 <script>
-import WeatherCard from './components/WeatherCard'
-
 export default {
   name: 'App',
-  components: { WeatherCard },
   data() {
     return {
-      city: 'Москва',
+      search: '',
     }
+  },
+  methods: {
+    findCity() {
+      this.$router.push('/weather/' + this.search)
+      this.search = ''
+    },
   },
 }
 </script>
