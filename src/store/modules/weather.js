@@ -52,6 +52,7 @@ export default {
           wind: data.wind.speed,
           weekDay: days[dt.getDay()],
           coords: data.coord,
+          datetime: dt,
         }
         commit('setCurrentDay', currentDay)
       } catch {

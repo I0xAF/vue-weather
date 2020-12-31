@@ -16,7 +16,8 @@
             {{ value }}
           </v-list-item-title>
           <v-list-item-subtitle>
-            {{ currentDay.weekDay }}, {{ currentDay.sky }}
+            {{ currentDay.weekDay }},
+            {{ currentDay.datetime.toLocaleString() }}, {{ currentDay.sky }}
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
