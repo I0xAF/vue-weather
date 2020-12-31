@@ -2,4 +2,4 @@
 
 ## Demonstation
 
-![Weather](demo/demo.png)
+![Weather](demo/demoWeather.png)
